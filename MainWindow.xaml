@@ -1,0 +1,23 @@
+﻿<Window x:Class="DTS_WPF_Learning.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DTS_WPF_Learning"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock Text="Đỗ Thanh Sang" 
+                   Foreground="Aqua" 
+                   FontSize="50" 
+                   FontWeight="Bold"
+                   MouseEnter="TextBlock_MouseEnter"
+                   Background="Pink"
+                   Height="100"
+                   Width="500"
+                   VerticalAlignment="Top"
+                   
+                   >
+        </TextBlock>
+    </Grid>
+</Window>
