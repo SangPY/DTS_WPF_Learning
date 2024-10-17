@@ -15,9 +15,16 @@
                    Background="Pink"
                    Height="100"
                    Width="500"
-                   VerticalAlignment="Top"
-                   
+                   VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"
                    >
+            <!--<TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="20" AngleY="10"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="20" Y="30"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>-->
         </TextBlock>
     </Grid>
 </Window>
