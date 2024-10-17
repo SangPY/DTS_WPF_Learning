@@ -7,24 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="Đỗ Thanh Sang" 
-                   Foreground="Aqua" 
-                   FontSize="50" 
-                   FontWeight="Bold"
-                   MouseEnter="TextBlock_MouseEnter"
-                   Background="Pink"
-                   Height="100"
-                   Width="500"
-                   VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"
-                   >
-            <!--<TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="20" AngleY="10"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="20" Y="30"/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>-->
-        </TextBlock>
+        <TextBox x:Name="txbSource" VerticalAlignment="Top"
+                 Text="{Binding ButtonName}"></TextBox>
+        <TextBox x:Name="txbBinding" VerticalAlignment="Center" 
+                 Text="{Binding Path=Text, ElementName=txbSource}"></TextBox>
+        <Button x:Name="btnBinding" VerticalAlignment="Bottom"
+                Content="{Binding ButtonName}"
+                ></Button>
     </Grid>
 </Window>
