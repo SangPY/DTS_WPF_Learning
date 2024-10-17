@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBlock>
-            ĐỖ THANH SANG HỌC LẬP TRÌNH  
-            <Span FontSize="20" FontFamily="arial" Foreground="Aqua"> WPF </Span>
-        </TextBlock>
+    <Grid x:Name="grdButton">
+        <!--<Button Content="CLick Me">
+            <Button.Background>
+                <ImageBrush ImageSource="LOGO_128.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>-->
     </Grid>
 </Window>

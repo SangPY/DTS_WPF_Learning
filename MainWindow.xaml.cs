@@ -23,12 +23,10 @@ namespace DTS_WPF_Learning
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void TextBlock_MouseEnter(object sender, MouseEventArgs e)
-        {
-            TextBlock txlb = sender as TextBlock;
-            txlb.Text = "DTS";
+            Button btn = new Button();
+            btn.Content = "Anh trai say HI";
+            grdButton.Children.Add(btn);
         }
     }
 }
