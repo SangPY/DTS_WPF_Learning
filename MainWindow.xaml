@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid x:Name="grdButton">
-        <!--<Button Content="CLick Me">
-            <Button.Background>
-                <ImageBrush ImageSource="LOGO_128.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>-->
+        <!--<TextBox Text="DTS"></TextBox>
+        <PasswordBox Password="Dothanhsang" PasswordChar="*"> </PasswordBox>-->
+        <TextBox x:Name="txbValue" VerticalAlignment="Center" TextChanged="txbValue_TextChanged"></TextBox>
+        <TextBlock x:Name="txblValue" VerticalAlignment="Top"></TextBlock>
+        <Button x:Name="btnValue" Content="Click" 
+                Click="btnValue_Click"
+                VerticalAlignment="Bottom"></Button>
     </Grid>
 </Window>

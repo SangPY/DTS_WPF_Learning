@@ -23,10 +23,30 @@ namespace DTS_WPF_Learning
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-            Button btn = new Button();
-            btn.Content = "Anh trai say HI";
-            grdButton.Children.Add(btn);
+        private void btnValue_Click(object sender, RoutedEventArgs e)
+        {
+            txblValue.Text = txbValue.Text;
+        }
+
+        int DoubleValue(int value)
+        {
+            return value * 2;
+        }
+
+        private void txbValue_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int value = 0;
+
+            if (int.TryParse(txbValue.Text, out value))
+            {
+                txblValue.Text = DoubleValue(value).ToString();
+            }    
+            else
+            {
+                txblValue.Text = "Vui lòng nhập đúng giá trị số";
+            }    
         }
     }
 }
