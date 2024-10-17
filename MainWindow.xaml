@@ -7,24 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="Đỗ Thanh Sang" 
-                   Foreground="Aqua" 
-                   FontSize="50" 
-                   FontWeight="Bold"
-                   MouseEnter="TextBlock_MouseEnter"
-                   Background="Pink"
-                   Height="100"
-                   Width="500"
-                   VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"
-                   >
-            <!--<TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="20" AngleY="10"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="20" Y="30"/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>-->
+        <TextBlock>
+            ĐỖ THANH SANG HỌC LẬP TRÌNH  
+            <Span FontSize="20" FontFamily="arial" Foreground="Aqua"> WPF </Span>
         </TextBlock>
     </Grid>
 </Window>
