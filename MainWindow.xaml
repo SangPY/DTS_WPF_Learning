@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button FontSize="50" 
-                Content="Đỗ Thanh Sang" 
-                Margin="54,242,327,73"
-                Padding="30"/>
-    </Grid>
+    <StackPanel > <!--Orientation="Horizontal"-->
+        <Button Content="Đỗ Thanh Sang"></Button>
+        <Button Content="Đỗ Thanh Sang"></Button>
+        <Button Content="Đỗ Thanh Sang" Height="50"></Button>
+        <Button Content="Đỗ Thanh Sang"></Button>
+        <Button Content="Đỗ Thanh Sang"></Button>
+    </StackPanel>
 </Window>
