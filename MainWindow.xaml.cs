@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,40 +18,12 @@ namespace DTS_WPF_Learning
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
-        private string buttonName;
-
-        public string ButtonName
-        {
-            get { return buttonName; }
-            set 
-            { 
-                buttonName = value;
-                OnPropertyChanged("ButtonName");
-            }
-        }
 
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = this;
-            ButtonName = "Binding data from code behind!";
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string newName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(newName));
-            }    
-        }
-
-        //private void btnBinding_Click(object sender, RoutedEventArgs e)
-        //{
-        //    txbBinding.Text = txbSource.Text;
-        //}
     }
 }

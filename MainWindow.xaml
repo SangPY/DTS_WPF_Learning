@@ -7,12 +7,31 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="txbSource" VerticalAlignment="Top"
-                 Text="{Binding ButtonName}"></TextBox>
-        <TextBox x:Name="txbBinding" VerticalAlignment="Center" 
-                 Text="{Binding Path=Text, ElementName=txbSource}"></TextBox>
-        <Button x:Name="btnBinding" VerticalAlignment="Bottom"
-                Content="{Binding ButtonName}"
-                ></Button>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="1" FontSize="50"></Button>
+            <Button Content="2" FontSize="50" Grid.Column="1"></Button>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="4" FontSize="50"></Button>
+            <Button Content="3" FontSize="50" Grid.Column="1"></Button>
+        </Grid>
+        
+        
     </Grid>
 </Window>
