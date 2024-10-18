@@ -25,10 +25,5 @@ namespace DTS_WPF_Learning
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(scvMain.VerticalOffset.ToString());
-        }
     }
 }

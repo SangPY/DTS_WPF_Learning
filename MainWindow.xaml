@@ -7,39 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Click" Height="30" Width="50" HorizontalAlignment="Left"
-                Click="Button_Click"></Button>
-        <Grid Width="200">
-        <ScrollViewer x:Name="scvMain" VerticalScrollBarVisibility="Auto" 
-                      HorizontalScrollBarVisibility="Visible"
-                      >
-            <StackPanel>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-                <Button Content="Đỗ Thanh Sang"></Button>
-            </StackPanel>
-        </ScrollViewer>
-    </Grid>
+        <CheckBox Content="Yes or No"> </CheckBox>
     </Grid>
 </Window>
