@@ -6,13 +6,16 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Canvas>
-        <Button Click="Button_Click" Panel.ZIndex="1" Canvas.Top="200" Canvas.Left="200"
-            Width="200" Height="150" Content="1" FontSize="50"></Button>
-        <Button x:Name="btn2" Canvas.Bottom="50" Canvas.Left="50"
-            Width="200" Height="100" Content="2" FontSize="50"></Button>
-        <Ellipse Fill="Aqua" Width="100" Height="50"></Ellipse>
-        <Rectangle Canvas.Left="50" Canvas.Top="20"
-            Fill="Pink" Width="50" Height="50"></Rectangle>
-    </Canvas>
+    <Grid>
+        <Grid Width="200" Margin="10" >
+            <Border Background="Pink" BorderBrush="Yellow" BorderThickness="5">
+                <StackPanel>
+                    <Button Content="Đỗ Thanh Sang"></Button>
+                    <Button Content="Đỗ Thanh Sang"></Button>
+                    <Button Content="Đỗ Thanh Sang"></Button>
+                    <Button Content="Đỗ Thanh Sang"></Button>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
 </Window>

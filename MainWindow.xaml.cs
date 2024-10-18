@@ -25,10 +25,5 @@ namespace DTS_WPF_Learning
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Canvas.SetZIndex(btn2, 99);
-        }
     }
 }
