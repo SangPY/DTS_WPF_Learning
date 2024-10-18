@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
@@ -30,8 +30,16 @@
 
             <Button Content="4" FontSize="50"></Button>
             <Button Content="3" FontSize="50" Grid.Column="1"></Button>
-        </Grid>
-        
-        
+        </Grid>-->
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button Content="1" FontSize="150"></Button>
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch"></GridSplitter>
+        <Button Grid.Column="2" Content="2" FontSize="150"></Button>
     </Grid>
 </Window>
