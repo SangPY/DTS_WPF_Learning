@@ -6,13 +6,11 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <WrapPanel  Orientation="Horizontal" >
+    <DockPanel>
+        <Button DockPanel.Dock="Top" Content="Đỗ Thanh Sang "></Button>
+        <Button DockPanel.Dock="Bottom" Content="Đỗ Thanh Sang"></Button>
+        <Button DockPanel.Dock="Left" Content="Đỗ Thanh Sang"></Button>
+        <Button DockPanel.Dock="Right" Content="Đỗ Thanh Sang"></Button>
         <Button Content="Đỗ Thanh Sang Đỗ Thanh Sang"></Button>
-        <Button  Margin="20" Content="Đỗ Thanh Sang Đỗ Thanh Sang"></Button>
-        <Button Content="Đỗ Thanh Sang Đỗ Thanh Sang" Height="50"></Button>
-        <Button Content="Đỗ Thanh Sang Đỗ Thanh Sang"></Button>
-        <Button Content="Đỗ Thanh Sang Đỗ Thanh Sang"></Button>
-        <Button Content="Đỗ Thanh Sang Đỗ Thanh Sang"></Button>
-        <Button Content="Đỗ Thanh Sang Đỗ Thanh Sang"></Button>
-    </WrapPanel>
+    </DockPanel>
 </Window>
