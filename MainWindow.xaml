@@ -38,5 +38,9 @@
             <Button Content="Đỗ Thanh Sang" Style="{StaticResource btnStylePurple}"> </Button>
             <Button Content="Đỗ Thanh Sang" Style="{StaticResource btnStyleOrange}"></Button>
         </StackPanel>
+        <StackPanel>
+            <Button Content="LV4 style"></Button>
+            <TextBox Text="LV4 sstyle"></TextBox>
+        </StackPanel>
     </StackPanel>
 </Window>

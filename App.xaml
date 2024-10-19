@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:DTS_WPF_Learning"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="Background" Value="Yellow"></Setter>
+        </Style>
+        <Style TargetType="TextBox" >
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="Background" Value="Pink"></Setter>
+        </Style>
     </Application.Resources>
 </Application>
