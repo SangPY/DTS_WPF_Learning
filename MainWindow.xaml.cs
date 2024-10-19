@@ -20,15 +20,18 @@ namespace DTS_WPF_Learning
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        List<string> ListData;
         public MainWindow()
         {
             InitializeComponent();
-        }
+            ListData = new List<string>();
+            for (int i= 0; i <5; i++)
+            {
+                ListData.Add(i.ToString());
+            }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            img.Source = new BitmapImage(new Uri(txbSource.Text));
+            cbCombo.ItemsSource = ListData;
+            lsbList.ItemsSource = ListData;
         }
     }
 }
