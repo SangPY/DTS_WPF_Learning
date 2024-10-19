@@ -7,10 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <Image x:Name="img" Stretch="Fill" Height="350"
-               Source="D:\NganVo\Vợ\ab 30x30_01.jpg"></Image>
-        <TextBox Text="{Binding Path=Source, ElementName=img}"></TextBox>
-        <TextBox x:Name="txbSource"></TextBox>
-        <Button Content="5" Click="Button_Click"></Button>
+        <StackPanel.Resources>
+            <ControlTemplate x:Key="templateButton">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Image Source="Image/z3698660799045_0b1b63682c58a3feb7af9b0082812f92.jpg"></Image>
+                    <TextBlock TextAlignment="Center" Text="{Binding}" DockPanel.Dock="Bottom"></TextBlock>
+                </StackPanel>
+            </ControlTemplate>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="150"></Setter>
+            </Style>
+        </StackPanel.Resources>
+        <Button x:Name="btn1" Template="{StaticResource templateButton}">
+        </Button>
+        <Button x:Name="btn2" Template="{StaticResource templateButton}"></Button>
+        <Button Content="Click" Click="Button_Click"></Button>
     </StackPanel>
 </Window>

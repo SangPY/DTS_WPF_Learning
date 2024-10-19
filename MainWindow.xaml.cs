@@ -28,7 +28,11 @@ namespace DTS_WPF_Learning
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            img.Source = new BitmapImage(new Uri(txbSource.Text));
+            string str1 = "Đỗ Thanh Sang";
+            string str2 = "Võ Thị Thanh Ngân";
+
+            btn1.DataContext = str1;
+            btn2.DataContext = str2;
         }
     }
 }
