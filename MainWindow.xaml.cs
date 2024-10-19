@@ -26,10 +26,5 @@ namespace DTS_WPF_Learning
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            brMain.Visibility = brMain.Visibility == System.Windows.Visibility.Collapsed ? System.Windows.Visibility.Visible 
-                                                    : System.Windows.Visibility.Collapsed;
-        }
     }
 }
