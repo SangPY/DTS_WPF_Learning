@@ -6,21 +6,37 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.Resources>
-            <Style TargetType="Button">
-                <Setter Property="Width" Value="150"></Setter>
-                <Setter Property="Background" Value="Aqua"></Setter>
-            </Style>
-            <Style TargetType="TextBox">
-                <Setter Property="Width" Value="150"></Setter>
-                <Setter Property="Background" Value="Aqua"></Setter>
-            </Style>
-        </Grid.Resources>
-        <Button Content="DTS Company" Width="100" HorizontalAlignment="Left">
-        </Button>
-        <Button Content="DTS Company" Width="100" HorizontalAlignment="Right">
-        </Button>
-        <TextBox Width="100"></TextBox>
-    </Grid>
+    <StackPanel>
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="150"></Setter>
+                    <Setter Property="Background" Value="Aqua"></Setter>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Width" Value="150"></Setter>
+                    <Setter Property="Background" Value="Aqua"></Setter>
+                </Style>
+            </Grid.Resources>
+            <Button Content="DTS Company" Width="100" HorizontalAlignment="Left">
+            </Button>
+            <Button Content="DTS Company" Width="100" HorizontalAlignment="Right">
+            </Button>
+            <TextBox Width="100"></TextBox>
+        </Grid>
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="Button" x:Key="btnStylePurple">
+                    <Setter Property="Width" Value="150"></Setter>
+                    <Setter Property="Background" Value="Purple"></Setter>
+                </Style>
+                <Style TargetType="Button" x:Key="btnStyleOrange">
+                    <Setter Property="Width" Value="150"></Setter>
+                    <Setter Property="Background" Value="Orange"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <Button Content="Đỗ Thanh Sang" Style="{StaticResource btnStylePurple}"> </Button>
+            <Button Content="Đỗ Thanh Sang" Style="{StaticResource btnStyleOrange}"></Button>
+        </StackPanel>
+    </StackPanel>
 </Window>
