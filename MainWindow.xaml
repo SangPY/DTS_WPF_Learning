@@ -6,7 +6,32 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <CheckBox Content="Yes or No"> </CheckBox>
-    </Grid>
+    <StackPanel>
+        <RadioButton IsChecked="True" Content="1"></RadioButton>
+        <RadioButton Content="2"></RadioButton>
+        <RadioButton Content="3"></RadioButton>
+        <Border x:Name="brMain"
+            BorderThickness="3" BorderBrush="Black" Margin="5" Visibility="Collapsed">
+            <StackPanel>
+                <RadioButton IsChecked="True" Content="4"></RadioButton>
+                <RadioButton Content="5"></RadioButton>
+                <RadioButton Content="6"></RadioButton>
+            </StackPanel>
+        </Border>
+        <Border BorderThickness="3" BorderBrush="Black" Margin="5">
+            <StackPanel>
+                <RadioButton IsChecked="True" Content="1"></RadioButton>
+                <RadioButton Content="2"></RadioButton>
+                <RadioButton Content="3"></RadioButton>
+            </StackPanel>
+        </Border>
+        <Border BorderThickness="3" BorderBrush="Black" Margin="5">
+            <StackPanel>
+                <RadioButton IsChecked="True" Content="1"></RadioButton>
+                <RadioButton Content="2"></RadioButton>
+                <RadioButton Content="3"></RadioButton>
+            </StackPanel>
+        </Border>
+        <Button Content="Click" Click="Button_Click"></Button>
+    </StackPanel>
 </Window>
