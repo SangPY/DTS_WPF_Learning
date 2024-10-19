@@ -7,7 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <Slider x:Name="sldMain" Value="10" Maximum="100"></Slider>
-        <TextBlock x:Name="txbValueSlider" Text="{Binding Path=Value, ElementName=sldMain}"></TextBlock>
+        <Image x:Name="img" Stretch="Fill" Height="350"
+               Source="D:\NganVo\Vợ\ab 30x30_01.jpg"></Image>
+        <TextBox Text="{Binding Path=Source, ElementName=img}"></TextBox>
+        <TextBox x:Name="txbSource"></TextBox>
+        <Button Content="5" Click="Button_Click"></Button>
     </StackPanel>
 </Window>
