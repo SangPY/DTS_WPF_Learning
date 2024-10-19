@@ -6,34 +6,21 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <!--<ComboBox>
-            <ComboBoxItem>1</ComboBoxItem>
-            <ComboBoxItem>2</ComboBoxItem>
-            <ComboBoxItem>3</ComboBoxItem>
-        </ComboBox>
-        <ListBox>
-            <ListBoxItem>5</ListBoxItem>
-            <ListBoxItem>6</ListBoxItem>
-            <ListBoxItem>7</ListBoxItem>
+    <Grid>
+        <!--<ListBox>
+            <ListBox.Items>
+                <ListBoxItem>1</ListBoxItem>
+                <ListBoxItem>2</ListBoxItem>
+             </ListBox.Items>
         </ListBox>-->
-        <ComboBox x:Name="cbCombo">
-            <ComboBox.ItemTemplate>
+        <ListView x:Name="lsvList">
+            <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid HorizontalAlignment="Stretch">
+                    <Grid>
                         <Button Content="{Binding}"></Button>
                     </Grid>
                 </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <ListBox x:Name="lsbList">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid HorizontalAlignment="Stretch">
-                        <Button Content="{Binding}"></Button>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </StackPanel>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </Window>
