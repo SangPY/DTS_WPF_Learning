@@ -6,11 +6,22 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <Image x:Name="img" Stretch="Fill" Height="350"
-               Source="D:\NganVo\Vợ\ab 30x30_01.jpg"></Image>
-        <TextBox Text="{Binding Path=Source, ElementName=img}"></TextBox>
-        <TextBox x:Name="txbSource"></TextBox>
-        <Button Content="5" Click="Button_Click"></Button>
-    </StackPanel>
+    <Grid>
+        <Button Content="DTS Company" Width="100" HorizontalAlignment="Left">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="150"></Setter>
+                    <Setter Property="Background" Value="Aqua"></Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Content="DTS Company" Width="100" HorizontalAlignment="Right">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="150"></Setter>
+                    <Setter Property="Background" Value="Aqua"></Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
 </Window>
