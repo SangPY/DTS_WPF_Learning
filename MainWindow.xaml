@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary Source="styleresource.xaml"></ResourceDictionary>
+    </Window.Resources>
     <StackPanel>
         <Grid>
             <Grid.Resources>
@@ -35,12 +38,15 @@
                     <Setter Property="Background" Value="Orange"></Setter>
                 </Style>
             </StackPanel.Resources>
-            <Button Content="Đỗ Thanh Sang" Style="{StaticResource btnStylePurple}"> </Button>
+            <Button Content="Đỗ Thanh Sang" Style="{StaticResource btnStylePurple}"></Button>
             <Button Content="Đỗ Thanh Sang" Style="{StaticResource btnStyleOrange}"></Button>
         </StackPanel>
         <StackPanel>
             <Button Content="LV4 style"></Button>
             <TextBox Text="LV4 sstyle"></TextBox>
+        </StackPanel>
+        <StackPanel>
+            <Button Content="LV5 style" Style="{StaticResource btnStyleFromResouceFile}"></Button>
         </StackPanel>
     </StackPanel>
 </Window>
