@@ -5,22 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <ComboBox x:Name="cbMain" Height="50" 
-                  VerticalAlignment="Top">
-            <StackPanel Orientation="Vertical">
-                <CheckBox></CheckBox>
-                <Button Content="DTS"></Button>
-            </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <CheckBox></CheckBox>
-                <Button Content="VTTT"></Button>
-            </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <CheckBox></CheckBox>
-                <Button Content="Agd"></Button>
-            </StackPanel>
+    <StackPanel>
+        <ComboBox>
+            <Grid Width="200">
+                <CheckBox HorizontalAlignment="Left"></CheckBox>
+                <Button HorizontalAlignment="Right" Content="DTS"></Button>
+            </Grid>
+            <Grid Width="200">
+                <CheckBox HorizontalAlignment="Left"></CheckBox>
+                <Button HorizontalAlignment="Right" Content="DTS"></Button>
+            </Grid>
+            <Grid Width="200">
+                <CheckBox HorizontalAlignment="Left"></CheckBox>
+                <Button HorizontalAlignment="Right" Content="DTS"></Button>
+            </Grid>
         </ComboBox>
-    </Grid>
+        <ComboBox x:Name="cbItemSource">
+            
+        </ComboBox>
+    </StackPanel>
 </Window>

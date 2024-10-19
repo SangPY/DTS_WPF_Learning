@@ -26,5 +26,9 @@ namespace DTS_WPF_Learning
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            cbItemSource.ItemsSource = new List<string>() { "DTS", "Hồng Ân", "Mây" };
+        }
     }
 }
