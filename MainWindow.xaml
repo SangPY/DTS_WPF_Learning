@@ -6,11 +6,21 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <Image x:Name="img" Stretch="Fill" Height="350"
-               Source="D:\NganVo\Vợ\ab 30x30_01.jpg"></Image>
-        <TextBox Text="{Binding Path=Source, ElementName=img}"></TextBox>
-        <TextBox x:Name="txbSource"></TextBox>
-        <Button Content="5" Click="Button_Click"></Button>
-    </StackPanel>
+    <Grid>
+        <ComboBox x:Name="cbMain" Height="50" 
+                  VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <CheckBox></CheckBox>
+                <Button Content="DTS"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <CheckBox></CheckBox>
+                <Button Content="VTTT"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <CheckBox></CheckBox>
+                <Button Content="Agd"></Button>
+            </StackPanel>
+        </ComboBox>
+    </Grid>
 </Window>

@@ -26,9 +26,5 @@ namespace DTS_WPF_Learning
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            img.Source = new BitmapImage(new Uri(txbSource.Text));
-        }
     }
 }
