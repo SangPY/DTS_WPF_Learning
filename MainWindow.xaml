@@ -22,8 +22,40 @@
                 <Button HorizontalAlignment="Right" Content="DTS"></Button>
             </Grid>
         </ComboBox>
-        <ComboBox x:Name="cbItemSource">
-            
+        <ComboBox x:Name="cbItemSource" Width="400">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="400">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Name}"></TextBlock>
+                        <TextBlock Grid.Column="1" Text="{Binding Price}"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox x:Name="cbColor">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="16"
+                            Fill="{Binding Name}" Margin="0.2 0.2 5 0.2"></Rectangle>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox x:Name="cbFont" ItemsSource="{x:Static Fonts.SystemFontFamilies}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding}" Margin="5"></TextBlock>
+                        <TextBlock Text="DTS" FontFamily="{Binding}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
         </ComboBox>
     </StackPanel>
 </Window>

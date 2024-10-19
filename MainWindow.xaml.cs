@@ -20,7 +20,7 @@ namespace DTS_WPF_Learning
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        List<Food> listName;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +29,34 @@ namespace DTS_WPF_Learning
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cbItemSource.ItemsSource = new List<string>() { "DTS", "Hồng Ân", "Mây" };
+            listName = new List<Food>()
+            {
+                new Food() {Name = "Tiger", Price = "350"},
+                new Food() {Name = "333", Price = "30"},
+                new Food() {Name = "Heniken", Price = "50"},
+                new Food() {Name = "Sai gon", Price = "70"}
+            };
+            cbItemSource.ItemsSource = listName;
+            //cbItemSource.DisplayMemberPath = "Name";
+            //cbItemSource.SelectedValuePath = "Price";
+
+            cbColor.ItemsSource = typeof(Colors).GetProperties();
+            cbFont.ItemsSource = typeof(FontFamily).GetProperties();
+
+            cbItemSource.SelectionChanged += CbItemSource_SelectionChanged;
         }
+
+        private void CbItemSource_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //MessageBox.Show((cbItemSource.SelectedItem as Food).Price);
+            MessageBox.Show(cbItemSource.SelectedValue.ToString());
+        }
+    }
+
+    public class Food
+    {
+        public string Name { get; set; }
+        public string Price { get; set; }
+
     }
 }
