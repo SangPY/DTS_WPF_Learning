@@ -7,21 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="150"></Setter>
+                <Setter Property="Background" Value="Aqua"></Setter>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Width" Value="150"></Setter>
+                <Setter Property="Background" Value="Aqua"></Setter>
+            </Style>
+        </Grid.Resources>
         <Button Content="DTS Company" Width="100" HorizontalAlignment="Left">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Width" Value="150"></Setter>
-                    <Setter Property="Background" Value="Aqua"></Setter>
-                </Style>
-            </Button.Style>
         </Button>
         <Button Content="DTS Company" Width="100" HorizontalAlignment="Right">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Width" Value="150"></Setter>
-                    <Setter Property="Background" Value="Aqua"></Setter>
-                </Style>
-            </Button.Style>
         </Button>
+        <TextBox Width="100"></TextBox>
     </Grid>
 </Window>
