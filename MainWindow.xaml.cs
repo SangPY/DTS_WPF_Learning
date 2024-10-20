@@ -20,18 +20,9 @@ namespace DTS_WPF_Learning
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> ListData;
         public MainWindow()
         {
             InitializeComponent();
-            ListData = new List<string>();
-            for (int i= 0; i <5; i++)
-            {
-                ListData.Add(i.ToString());
-            }
-
-            cbCombo.ItemsSource = ListData;
-            lsbList.ItemsSource = ListData;
         }
     }
 }

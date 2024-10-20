@@ -6,34 +6,16 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <!--<ComboBox>
-            <ComboBoxItem>1</ComboBoxItem>
-            <ComboBoxItem>2</ComboBoxItem>
-            <ComboBoxItem>3</ComboBoxItem>
-        </ComboBox>
-        <ListBox>
-            <ListBoxItem>5</ListBoxItem>
-            <ListBoxItem>6</ListBoxItem>
-            <ListBoxItem>7</ListBoxItem>
-        </ListBox>-->
-        <ComboBox x:Name="cbCombo">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid HorizontalAlignment="Stretch">
-                        <Button Content="{Binding}"></Button>
-                    </Grid>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <ListBox x:Name="lsbList">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid HorizontalAlignment="Stretch">
-                        <Button Content="{Binding}"></Button>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </StackPanel>
+    <Grid>
+        <TreeView>
+            <TreeViewItem Header="Level 1" IsExpanded="True">
+                <TreeViewItem Header="Level 2.1"></TreeViewItem>
+                <TreeViewItem Header="Level 2.2" IsExpanded="True">
+                    <TreeViewItem Header="Level 3.1"></TreeViewItem>
+                    <TreeViewItem Header="Level 3.2"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="Level 2.3"></TreeViewItem>
+            </TreeViewItem>
+        </TreeView>
+    </Grid>
 </Window>
