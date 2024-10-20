@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace DTS_WPF_Learning
 {
@@ -27,15 +28,15 @@ namespace DTS_WPF_Learning
             List<User> items = new List<User>();
 
             items.Add(new User() { Name = "Đỗ Thanh Sang", Age = 29, Mail = "123@gmail.com", Sex = SexType.Male});
-            items.Add(new User() { Name = "Đỗ Thanh Sung", Age = 29, Mail = "123@gmail.com", Sex = SexType.Male });
-            items.Add(new User() { Name = "Đỗ Thanh Sen", Age = 29, Mail = "123@gmail.com", Sex = SexType.Female });
+            items.Add(new User() { Name = "Đỗ Thanh Sung", Age = 23, Mail = "123@gmail.com", Sex = SexType.Male });
+            items.Add(new User() { Name = "Đỗ Thanh Sen", Age = 27, Mail = "123@gmail.com", Sex = SexType.Female });
 
             lvUsers.ItemsSource = items;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvUsers.ItemsSource);
-
-            PropertyGroupDescription groupDescription = new PropertyGroupDescription("Sex");
-            view.GroupDescriptions.Add(groupDescription);
+            view.SortDescriptions.Add(new SortDescription("Age", ListSortDirection.Ascending));
+            //PropertyGroupDescription groupDescription = new PropertyGroupDescription("Sex");
+            //view.GroupDescriptions.Add(groupDescription);
         }
 
         public enum SexType { Male, Female};
