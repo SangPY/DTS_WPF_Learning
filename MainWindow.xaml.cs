@@ -21,24 +21,28 @@ namespace DTS_WPF_Learning
     /// </summary>
     public partial class MainWindow : Window
     {
-        public bool isShort;
         public MainWindow()
         {
             InitializeComponent();
-
-            isShort = false;
             List<User> items = new List<User>();
 
             items.Add(new User() { Name = "Đỗ Thanh Sang", Age = 29, Mail = "123@gmail.com", Sex = SexType.Male});
             items.Add(new User() { Name = "Đỗ Thanh Sung", Age = 23, Mail = "123@gmail.com", Sex = SexType.Male });
             items.Add(new User() { Name = "Đỗ Thanh Sen", Age = 27, Mail = "123@gmail.com", Sex = SexType.Female });
+            items.Add(new User() { Name = "Đỗ Thanh Hồng Ân", Age = 1, Mail = "123@gmail.com", Sex = SexType.Female });
 
             lvUsers.ItemsSource = items;
 
-            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvUsers.ItemsSource);
-            //view.SortDescriptions.Add(new SortDescription("Age", ListSortDirection.Ascending));
-            //PropertyGroupDescription groupDescription = new PropertyGroupDescription("Sex");
-            //view.GroupDescriptions.Add(groupDescription);
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvUsers.ItemsSource);
+            view.Filter = UserFiler;
+        }
+
+        private bool UserFiler(object item)
+        {
+            if (String.IsNullOrEmpty(txtFilter.Text))
+                return true;
+            else
+                return ((item as User).Name.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) > 0);
         }
 
         public enum SexType { Male, Female};
@@ -51,25 +55,10 @@ namespace DTS_WPF_Learning
 
             public SexType Sex { get; set; }
         }
-
-        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            GridViewColumnHeader header = sender as GridViewColumnHeader;
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvUsers.ItemsSource);
-            if(isShort)
-            {
-                view.SortDescriptions.Clear();
-                //view.SortDescriptions.Remove(new SortDescription(header.Content.ToString(), ListSortDirection.Descending));
-                view.SortDescriptions.Add(new SortDescription(header.Content.ToString(), ListSortDirection.Ascending));
-            }   
-            else
-            {
-                view.SortDescriptions.Clear();
-                //view.SortDescriptions.Remove(new SortDescription(header.Content.ToString(), ListSortDirection.Ascending));
-                view.SortDescriptions.Add(new SortDescription(header.Content.ToString(), ListSortDirection.Descending));
-            }
-
-            isShort = !isShort;
+            CollectionViewSource.GetDefaultView(lvUsers.ItemsSource).Refresh();
         }
     }
 }

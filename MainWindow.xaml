@@ -6,22 +6,17 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <DockPanel Margin="10">
+        <TextBox DockPanel.Dock="Top" Margin="0,0,0,10" Name="txtFilter" TextChanged="TextBox_TextChanged"></TextBox>
         <ListView Margin="10" Name="lvUsers">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Name}">
-                        <GridViewColumnHeader Click="GridViewColumnHeader_Click">
-                            Name
-                        </GridViewColumnHeader>
-                    </GridViewColumn>
-                    <GridViewColumn Width="50" DisplayMemberBinding="{Binding Age}">
-                        <GridViewColumnHeader Click="GridViewColumnHeader_Click">
-                            Age
-                        </GridViewColumnHeader>
-                    </GridViewColumn>
+                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}">
+                     </GridViewColumn>
+                    <GridViewColumn Header="Age" Width="50" DisplayMemberBinding="{Binding Age}">
+                     </GridViewColumn>
                    </GridView>
             </ListView.View>
         </ListView>
-    </Grid>
+    </DockPanel>
 </Window>
