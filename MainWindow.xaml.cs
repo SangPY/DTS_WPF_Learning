@@ -21,10 +21,12 @@ namespace DTS_WPF_Learning
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool isShort;
         public MainWindow()
         {
             InitializeComponent();
 
+            isShort = false;
             List<User> items = new List<User>();
 
             items.Add(new User() { Name = "Đỗ Thanh Sang", Age = 29, Mail = "123@gmail.com", Sex = SexType.Male});
@@ -33,8 +35,8 @@ namespace DTS_WPF_Learning
 
             lvUsers.ItemsSource = items;
 
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvUsers.ItemsSource);
-            view.SortDescriptions.Add(new SortDescription("Age", ListSortDirection.Ascending));
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvUsers.ItemsSource);
+            //view.SortDescriptions.Add(new SortDescription("Age", ListSortDirection.Ascending));
             //PropertyGroupDescription groupDescription = new PropertyGroupDescription("Sex");
             //view.GroupDescriptions.Add(groupDescription);
         }
@@ -48,6 +50,26 @@ namespace DTS_WPF_Learning
             public string Mail { get; set; }
 
             public SexType Sex { get; set; }
+        }
+
+        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            GridViewColumnHeader header = sender as GridViewColumnHeader;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvUsers.ItemsSource);
+            if(isShort)
+            {
+                view.SortDescriptions.Clear();
+                //view.SortDescriptions.Remove(new SortDescription(header.Content.ToString(), ListSortDirection.Descending));
+                view.SortDescriptions.Add(new SortDescription(header.Content.ToString(), ListSortDirection.Ascending));
+            }   
+            else
+            {
+                view.SortDescriptions.Clear();
+                //view.SortDescriptions.Remove(new SortDescription(header.Content.ToString(), ListSortDirection.Ascending));
+                view.SortDescriptions.Add(new SortDescription(header.Content.ToString(), ListSortDirection.Descending));
+            }
+
+            isShort = !isShort;
         }
     }
 }
