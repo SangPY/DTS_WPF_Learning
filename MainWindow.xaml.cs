@@ -20,17 +20,24 @@ namespace DTS_WPF_Learning
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> data;
         public MainWindow()
         {
             InitializeComponent();
-            data = new List<string>()
-            {
-                "Đỗ Thanh sang",
-                "ĐỖ thanh sung",
-                "Võ thị thanh ngân"
-            };
-            lsvList.ItemsSource = data;
+
+            List<User> items = new List<User>();
+
+            items.Add(new User() { Name = "Đỗ Thanh Sang", Age = 29, Mail = "123@gmail.com" });
+            items.Add(new User() { Name = "Đỗ Thanh Sung", Age = 29, Mail = "123@gmail.com" });
+            items.Add(new User() { Name = "Đỗ Thanh Sen", Age = 29, Mail = "123@gmail.com" });
+
+            lvUsers.ItemsSource = items;
+        }
+
+        public class User
+        {
+            public string Name {get; set; }
+            public int Age { get; set; }
+            public string Mail { get; set; }
         }
     }
 }

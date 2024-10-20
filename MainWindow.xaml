@@ -7,20 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <!--<ListBox>
-            <ListBox.Items>
-                <ListBoxItem>1</ListBoxItem>
-                <ListBoxItem>2</ListBoxItem>
-             </ListBox.Items>
-        </ListBox>-->
-        <ListView x:Name="lsvList">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Button Content="{Binding}"></Button>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+        <ListView Margin="10" Name="lvUsers">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                    <GridViewColumn Header="Age" Width="50" DisplayMemberBinding="{Binding Age}"></GridViewColumn>
+                    <GridViewColumn Header="Mail" Width="120" DisplayMemberBinding="{Binding Mail}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
         </ListView>
     </Grid>
 </Window>
