@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,61 +26,41 @@ namespace DTS_WPF_Learning
         {
             InitializeComponent();
 
-            //MenuItem root = new MenuItem() { Title = "Menu" };
-
-            //MenuItem childItem1 = new MenuItem() { Title = "Child item #1" };
-            //childItem1.Items.Add(new MenuItem() { Title = "Child item #1.1" });
-            //childItem1.Items.Add(new MenuItem() { Title = "Child item #1.2" });
-            //root.Items.Add(childItem1);
-            //root.Items.Add(new MenuItem() { Title = "Child item #2" });
-            //trvMenu.Items.Add(root);
-
-            List<Family> families = new List<Family>();
-            Family family1 = new Family() { Name = "Do thanh sang" };
-            family1.Members.Add(new FamilyMember() { Name = "DTS", Age = 29 });
-            family1.Members.Add(new FamilyMember() { Name = "SangDT", Age = 28 });
-            family1.Members.Add(new FamilyMember() { Name = "S DX", Age = 31 });
-            families.Add(family1);
-
-            Family family2 = new Family() { Name = "Do thanh hong an" };
-            family2.Members.Add(new FamilyMember() { Name = "Hong an", Age = 1 });
-            family2.Members.Add(new FamilyMember() { Name = "May", Age = 2 });
-
-            families.Add(family2);
-
-            trvFamilies.ItemsSource = families;
+            DriveInfo[] drives = DriveInfo.GetDrives();
+            foreach (DriveInfo driveInfo in drives)
+                trvStructure.Items.Add(CreateTreeItem(driveInfo));
         }
-    }
 
-    public class MenuItem
-    {
-        public MenuItem()
+        public void TreeViewItem_Expanded(object sender, RoutedEventArgs e)
         {
-            this.Items = new ObservableCollection<MenuItem>();
+            TreeViewItem item = e.Source as TreeViewItem;
+
+            if ((item.Items.Count == 1) && (item.Items[0] is string))
+            {
+                item.Items.Clear();
+
+                DirectoryInfo expanderDir = null;
+                if (item.Tag is DriveInfo)
+                    expanderDir = (item.Tag as DriveInfo).RootDirectory;
+                else
+                    expanderDir = (item.Tag as DirectoryInfo);
+                try
+                {
+                    foreach (DirectoryInfo subDir in expanderDir.GetDirectories())
+                        item.Items.Add(CreateTreeItem(subDir));
+                }
+                catch { }
+            }    
         }
 
-        public string Title { get; set; }
-
-        public ObservableCollection<MenuItem> Items { get; set; }
-    }
-
-    public class Family
-    {
-        public Family()
+        private TreeViewItem CreateTreeItem(object o)
         {
-            this.Members = new ObservableCollection<FamilyMember>();
+            TreeViewItem item = new TreeViewItem();
+            item.Header = o.ToString();
+            item.Tag = o;
+            item.Items.Add("Loading...");
+            return item;
         }
-
-        public string Name { get; set; }
-
-        public ObservableCollection<FamilyMember> Members { get; set; }
     }
 
-
-    public class FamilyMember
-    {
-        public string Name { get; set; }
-
-        public int Age { get; set; }
-    }
 }
