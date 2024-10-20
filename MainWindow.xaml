@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:self ="clr-namespace:DTS_WPF_Learning"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TreeView Name="trvStructure" TreeViewItem.Expanded="TreeViewItem_Expanded"
-                  Margin="10"></TreeView>
-    </Grid>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <CheckBox Name="cbSample" Content="Đỗ Thanh Sang"></CheckBox>
+        <TextBlock HorizontalAlignment="Center" Margin="20" FontSize="48">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Text" Value="Triggle xử lý"></Setter>
+                    <Setter Property="Foreground" Value="Purple"></Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=cbSample, 
+                            Path=IsChecked}" Value="True">
+                            <Setter Property="Text" Value="Share to be better!"></Setter>
+                            <Setter Property="Foreground" Value="Orange"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+    </StackPanel>
 </Window>
