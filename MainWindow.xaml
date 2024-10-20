@@ -13,8 +13,19 @@
                     <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
                     <GridViewColumn Header="Age" Width="50" DisplayMemberBinding="{Binding Age}"></GridViewColumn>
                     <GridViewColumn Header="Mail" Width="120" DisplayMemberBinding="{Binding Mail}"></GridViewColumn>
+                    <GridViewColumn Header="Sex" Width="120" DisplayMemberBinding="{Binding Sex}"></GridViewColumn>
                 </GridView>
             </ListView.View>
+
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock FontWeight="Bold" FontSize="14" Text="{Binding Name}"></TextBlock>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
         </ListView>
     </Grid>
 </Window>
