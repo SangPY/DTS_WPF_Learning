@@ -24,7 +24,7 @@
         </TextBlock>
     </StackPanel>-->
 
-    <Grid>
+    <!--<Grid>
         <TextBlock Text="ĐỖ THanh sang Test Triggle" FontSize="28"
                  HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock.Style>
@@ -40,5 +40,35 @@
             </TextBlock.Style>
         </TextBlock>
 
+    </Grid>-->
+
+    <Grid>
+        <TextBlock x:Name="lblStyled" Text="Hello, styled world!" FontSize="18"
+                   HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Duration="0:0:1.300" 
+                                                     Storyboard.TargetProperty="FontSize"
+                                                     To="28"></DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Duration="0:0:1.800"
+                                                     Storyboard.TargetProperty="FontSize"
+                                                     To="18"></DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
     </Grid>
 </Window>
