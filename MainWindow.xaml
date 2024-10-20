@@ -6,14 +6,37 @@
         xmlns:self ="clr-namespace:DTS_WPF_Learning"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TreeView Name="trvMenu">
+        <TreeView Name="trvFamilies">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type self:Family}"
+                                          ItemsSource="{Binding Members}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="20" Stretch="Uniform" Source="/Image/sang1.jpg"></Image>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <TextBlock Text=" [" Foreground="Blue"></TextBlock>
+                        <TextBlock Text="{Binding Members.Count}" Foreground="Blue"></TextBlock>
+                        <TextBlock Text=" ]" Foreground="Blue"></TextBlock>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+                <DataTemplate DataType="{x:Type self:FamilyMember}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="20" Stretch="Uniform" Source="/Image/sang2.jpg"></Image>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <TextBlock Text=" (" Foreground="Green"></TextBlock>
+                        <TextBlock Text="{Binding Age}" Foreground="Green"></TextBlock>
+                        <TextBlock Text=" years)" Foreground="Green"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+        <!--<TreeView Name="trvMenu">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate DataType="{x:Type self:MenuItem}"
                                           ItemsSource="{Binding Items}">
                     <TextBlock Text="{Binding Title}"></TextBlock>
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
-        </TreeView>
+        </TreeView>-->
         <!--<TreeView>
             <TreeViewItem Header="Level 1" IsExpanded="True">
                 <TreeViewItem Header="Level 2.1"></TreeViewItem>
