@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:self ="clr-namespace:DTS_WPF_Learning"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+    <!--<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <CheckBox Name="cbSample" Content="Đỗ Thanh Sang"></CheckBox>
         <TextBlock HorizontalAlignment="Center" Margin="20" FontSize="48">
             <TextBlock.Style>
@@ -22,5 +22,23 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-    </StackPanel>
+    </StackPanel>-->
+
+    <Grid>
+        <TextBlock Text="ĐỖ THanh sang Test Triggle" FontSize="28"
+                 HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="Blue"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="Red"></Setter>
+                            <Setter Property="TextDecorations" Value="Underline"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+    </Grid>
 </Window>
