@@ -5,70 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:self ="clr-namespace:DTS_WPF_Learning"
         Title="MainWindow" Height="450" Width="800">
-    <!--<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <CheckBox Name="cbSample" Content="Đỗ Thanh Sang"></CheckBox>
-        <TextBlock HorizontalAlignment="Center" Margin="20" FontSize="48">
-            <TextBlock.Style>
-                <Style TargetType="TextBlock">
-                    <Setter Property="Text" Value="Triggle xử lý"></Setter>
-                    <Setter Property="Foreground" Value="Purple"></Setter>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=cbSample, 
-                            Path=IsChecked}" Value="True">
-                            <Setter Property="Text" Value="Share to be better!"></Setter>
-                            <Setter Property="Foreground" Value="Orange"></Setter>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-    </StackPanel>-->
-
-    <!--<Grid>
-        <TextBlock Text="ĐỖ THanh sang Test Triggle" FontSize="28"
-                 HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock.Style>
-                <Style TargetType="TextBlock">
-                    <Setter Property="Foreground" Value="Blue"></Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="Red"></Setter>
-                            <Setter Property="TextDecorations" Value="Underline"></Setter>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-
-    </Grid>-->
 
     <Grid>
-        <TextBlock x:Name="lblStyled" Text="Hello, styled world!" FontSize="18"
+        <TextBox x:Name="lblStyled" Text="Hello, styled world!" FontSize="18"
                    HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock.Style>
-                <Style TargetType="{x:Type TextBlock}">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
                     <Style.Triggers>
-                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Duration="0:0:1.300" 
-                                                     Storyboard.TargetProperty="FontSize"
-                                                     To="28"></DoubleAnimation>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Duration="0:0:1.800"
-                                                     Storyboard.TargetProperty="FontSize"
-                                                     To="18"></DoubleAnimation>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"></Condition>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Background" Value="Purple"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
                     </Style.Triggers>
                 </Style>
-            </TextBlock.Style>
-        </TextBlock>
+            </TextBox.Style>
+        </TextBox>
     </Grid>
 </Window>
