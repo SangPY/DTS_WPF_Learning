@@ -21,7 +21,17 @@
                                 <Setter Property="Background" Value="Purple"></Setter>
                             </MultiTrigger.Setters>
                         </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="False"></Condition>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Background" Value="Orange"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
                     </Style.Triggers>
+                    
                 </Style>
             </TextBox.Style>
         </TextBox>
