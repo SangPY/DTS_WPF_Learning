@@ -16,7 +16,7 @@
             <Button Command="ApplicationCommands.New"> New</Button>
         </StackPanel>
     </Grid>-->
-    <Window.CommandBindings>
+    <!--<Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Cut" 
                          Executed="CutCommand_Executed"
                         CanExecute="CutCommand_CanExecute">
@@ -30,6 +30,14 @@
         <WrapPanel DockPanel.Dock="Top" Margin="3">
             <Button Command="ApplicationCommands.Cut" Width="60">Cut</Button>
             <Button Command="ApplicationCommands.Paste" Width="60" Margin="3,0">Paste</Button>
+        </WrapPanel>
+        <TextBox AcceptsReturn="True" Name="txtEditor"></TextBox>
+    </DockPanel>-->
+
+    <DockPanel>
+        <WrapPanel DockPanel.Dock="Top" Margin="3">
+            <Button Command="ApplicationCommands.Cut" CommandTarget="{Binding ElementName=txtEditor}" Width="60"> Cut</Button>
+            <Button Command="ApplicationCommands.Paste" CommandTarget="{Binding ElementName=txtEditor}" Width="60" Margin="3,0">Paster</Button>
         </WrapPanel>
         <TextBox AcceptsReturn="True" Name="txtEditor"></TextBox>
     </DockPanel>
