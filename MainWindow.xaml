@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:self ="clr-namespace:DTS_WPF_Learning"
         Title="MainWindow" Height="450" Width="800">
-    <Window.CommandBindings>
+    <!--<Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.New"
                         Executed="NewCommand_Executed"
                         CanExecute="NewCommand_CanExecute">
@@ -15,5 +15,22 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Command="ApplicationCommands.New"> New</Button>
         </StackPanel>
-    </Grid>
+    </Grid>-->
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Cut" 
+                         Executed="CutCommand_Executed"
+                        CanExecute="CutCommand_CanExecute">
+        </CommandBinding>
+        <CommandBinding Command="ApplicationCommands.Paste" 
+                         Executed="PasteCommand_Executed"
+                        CanExecute="PasteCommand_CanExecute">
+        </CommandBinding>
+    </Window.CommandBindings>
+    <DockPanel>
+        <WrapPanel DockPanel.Dock="Top" Margin="3">
+            <Button Command="ApplicationCommands.Cut" Width="60">Cut</Button>
+            <Button Command="ApplicationCommands.Paste" Width="60" Margin="3,0">Paste</Button>
+        </WrapPanel>
+        <TextBox AcceptsReturn="True" Name="txtEditor"></TextBox>
+    </DockPanel>
 </Window>
