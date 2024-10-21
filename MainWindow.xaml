@@ -5,35 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:self ="clr-namespace:DTS_WPF_Learning"
         Title="MainWindow" Height="450" Width="800">
-
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.New"
+                        Executed="NewCommand_Executed"
+                        CanExecute="NewCommand_CanExecute">
+        </CommandBinding>
+    </Window.CommandBindings>
     <Grid>
-        <TextBox x:Name="lblStyled" Text="Hello, styled world!" FontSize="18"
-                   HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox.Style>
-                <Style TargetType="TextBox">
-                    <Style.Triggers>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsKeyboardFocused" Value="True"></Condition>
-                                <Condition Property="IsMouseOver" Value="True"></Condition>
-                            </MultiTrigger.Conditions>
-                            <MultiTrigger.Setters>
-                                <Setter Property="Background" Value="Purple"></Setter>
-                            </MultiTrigger.Setters>
-                        </MultiTrigger>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsKeyboardFocused" Value="False"></Condition>
-                                <Condition Property="IsMouseOver" Value="True"></Condition>
-                            </MultiTrigger.Conditions>
-                            <MultiTrigger.Setters>
-                                <Setter Property="Background" Value="Orange"></Setter>
-                            </MultiTrigger.Setters>
-                        </MultiTrigger>
-                    </Style.Triggers>
-                    
-                </Style>
-            </TextBox.Style>
-        </TextBox>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Command="ApplicationCommands.New"> New</Button>
+        </StackPanel>
     </Grid>
 </Window>

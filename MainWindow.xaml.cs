@@ -26,6 +26,16 @@ namespace DTS_WPF_Learning
         {
             InitializeComponent();
         }
+
+        private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("The new command is invoked");
+        }
+
+        private void NewCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
     }
 
 }
