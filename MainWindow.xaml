@@ -5,15 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="800">
 
   
     <Grid>
         <!-- Hiển thị hình ảnh -->
-        <Image x:Name="DisplayImage" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="200" />
+        <Image x:Name="DisplayImage" Width="500" Height="600" />
+
+        <!-- Chấm trắng ở giữa ảnh -->
+        <Ellipse x:Name="CenterDot" Width="10" Height="10" Fill="White"
+                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                 MouseDown="CenterDot_MouseDown"
+                 MouseMove="CenterDot_MouseMove"
+                 MouseUp="CenterDot_MouseUp"/>
 
         <!-- Nút chuyển sang hình ảnh tiếp theo -->
-        <Button Content="Next Image" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"
-                Width="100" Height="30" Click="NextImage_Click"/>
+        <!--<Button Content="Next Image" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"
+                Width="100" Height="30" Click="NextImage_Click"/>-->
     </Grid>
 </Window>
