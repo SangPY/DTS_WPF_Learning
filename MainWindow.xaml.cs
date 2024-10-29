@@ -30,8 +30,18 @@ namespace DTS_WPF_Learning
             // Thêm các đường dẫn hình ảnh khác ở đây
         };
 
+        // Danh sách các đường link dẫn hình ảnh
+        private List<string> _imageLinks = new List<string>
+        {
+           "https://www.vikingscyber.com/",
+           "https://www.vikingscyber.com/khuyen-mai",
+           "https://www.vikingscyber.com/tin-tuc"
+        };
+
+
         private int _currentIndex = 0;
         private bool _isDragging = false; // Biến để xác định trạng thái kéo
+        private Point _startPoint; // Điểm bắt đầu của kéo
 
         // Đường link cố định sẽ được mở khi click
         private string _fixedLink = "https://www.vikingscyber.com/";
@@ -52,70 +62,51 @@ namespace DTS_WPF_Learning
             }
         }
 
-        //private void NextImage_Click(object sender, RoutedEventArgs e)
-        //{
-        //    // Tăng chỉ số ảnh hiện tại
-        //    _currentIndex = (_currentIndex + 1) % _imagePaths.Count; // Quay vòng lại khi đến cuối danh sách
-        //    ShowImage(_currentIndex);
-        //}
-
-        // Sự kiện click vào chấm trắng
-        private void CenterDot_Click(object sender, MouseButtonEventArgs e)
+        // Sự kiện khi nhấn chuột vào hình ảnh (bắt đầu kéo)
+        private void DisplayImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            // Mở đường link cố định trong trình duyệt
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = _fixedLink,
-                UseShellExecute = true // Cần thiết để mở link trong trình duyệt mặc định
-            });
+            _isDragging = true;
+            _startPoint = e.GetPosition(this);
         }
 
-
-        // Sự kiện khi bắt đầu kéo chấm trắng
-        private void CenterDot_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                _isDragging = true;
-            }
-        }
-
-        // Sự kiện khi đang kéo
-        private void CenterDot_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (_isDragging && e.LeftButton == MouseButtonState.Pressed)
-            {
-                // Di chuyển chấm trắng hoặc chỉ đơn giản là giữ trạng thái kéo
-                // Bạn có thể thêm logic di chuyển nếu cần
-            }
-        }
-
-        // Sự kiện khi thả chuột sau khi kéo
-        private void CenterDot_MouseUp(object sender, MouseButtonEventArgs e)
+        // Sự kiện khi thả chuột
+        private void DisplayImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (_isDragging)
             {
-                // Khi hoàn thành kéo, chuyển sang hình ảnh tiếp theo
-                _currentIndex = (_currentIndex + 1) % _imagePaths.Count;
-                ShowImage(_currentIndex);
-                _isDragging = false; // Kết thúc trạng thái kéo
+                // Nếu là click không phải kéo, mở link của hình ảnh hiện tại
+                OpenImageLink(_currentIndex);
+            }    
+        }
+
+        // Sự kiện khi di chuyển chuột (kéo hình ảnh)
+        private void DisplayImage_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_isDragging)
+            {
+                Point currentpoint = e.GetPosition(this);
+
+                // Kiểm tra để kéo đủ xa, phân biệt giữa kéo thả và click
+                if (Math.Abs(currentpoint.X - _startPoint.X) > 20 || Math.Abs(currentpoint.Y - _startPoint.Y) > 20)
+                {
+                    _isDragging = false;
+                    _currentIndex = (_currentIndex + 1) % _imagePaths.Count; //Chuyển sang hình ảnh tiếp theo
+                    ShowImage(_currentIndex);
+                }
             }
         }
 
-        // Sự kiện bắt đầu kéo chấm trắng
-        //private void CenterDot_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    if (e.LeftButton == MouseButtonState.Pressed && !_isDragging)
-        //    {
-        //        _isDragging = true;
-        //    }
-        //    else if (e.LeftButton == MouseButtonState.Released && _isDragging)
-        //    {
-        //        // Khi hoàn thành kéo, chuyển sang hình ảnh tiếp theo
-        //        _currentIndex = (_currentIndex + 1) % _imagePaths.Count;
-        //        ShowImage(_currentIndex);
-        //        _isDragging = false;
-        //    }
-        //}
+        // Mở link của hình ảnh hiện tại
+        private void OpenImageLink(int index)
+        {
+            if (index >= 0 && index < _imageLinks.Count)
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = _imageLinks[index],
+                    UseShellExecute = true // Cần thiết để mở link trong trình duyệt mặc định
+                });
+            }
+        }
     }
 }

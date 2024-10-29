@@ -9,18 +9,10 @@
 
   
     <Grid>
-        <!-- Hiển thị hình ảnh -->
-        <Image x:Name="DisplayImage" Width="500" Height="600" />
-
-        <!-- Chấm trắng ở giữa ảnh -->
-        <Ellipse x:Name="CenterDot" Width="10" Height="10" Fill="White"
-                 HorizontalAlignment="Center" VerticalAlignment="Center"
-                 MouseDown="CenterDot_MouseDown"
-                 MouseMove="CenterDot_MouseMove"
-                 MouseUp="CenterDot_MouseUp"/>
-
-        <!-- Nút chuyển sang hình ảnh tiếp theo -->
-        <!--<Button Content="Next Image" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"
-                Width="100" Height="30" Click="NextImage_Click"/>-->
+        <!-- Hiển thị hình ảnh và xử lý sự kiện -->
+        <Image x:Name="DisplayImage"
+               MouseLeftButtonDown="DisplayImage_MouseLeftButtonDown"
+               MouseLeftButtonUp="DisplayImage_MouseLeftButtonUp"
+               MouseMove="DisplayImage_MouseMove"></Image>
     </Grid>
 </Window>
