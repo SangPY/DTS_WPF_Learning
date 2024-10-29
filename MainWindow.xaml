@@ -7,42 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <!-- Storyboard to animate the images -->
-    <Window.Resources>
-        <Storyboard x:Key="ImageAnimation" RepeatBehavior="Forever">
-            <!-- Animation for Image 1: Fade out -->
-            <DoubleAnimation Storyboard.TargetName="sang1"
-                                 Storyboard.TargetProperty="Opacity"
-                                 From="1" To="0" Duration="0:0:1"
-                                 BeginTime="0:0:3"/>
-
-            <!-- Animation for Image 2: Fade in -->
-            <DoubleAnimation Storyboard.TargetName="sang2"
-                                 Storyboard.TargetProperty="Opacity"
-                                 From="0" To="1" Duration="0:0:1"
-                                 BeginTime="0:0:3"/>
-            
-        </Storyboard>
-    </Window.Resources>
-
-    <!-- Start Animation on Load -->
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="Window.Loaded">
-            <BeginStoryboard Storyboard="{StaticResource ImageAnimation}"/>
-        </EventTrigger>
-    </Window.Triggers>
-
+  
     <Grid>
-        <!-- Grid to hold images -->
-        <Grid>
-            <!-- Image 1 -->
-            <Image x:Name="sang1" Source="/Images/sang1.jpg" Width="300" Height="200"/>
+        <!-- Hiển thị hình ảnh -->
+        <Image x:Name="DisplayImage" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="200" />
 
-            <!-- Image 2 -->
-            <Image x:Name="sang2" Source="/Images/sang2.jpg" Width="300" Height="200" Visibility="Collapsed"/>
-
-            <!-- Image 3 -->
-            <Image x:Name="sang3" Source="/Images/sang3.jpg" Width="300" Height="200" Visibility="Collapsed"/>
-        </Grid>
+        <!-- Nút chuyển sang hình ảnh tiếp theo -->
+        <Button Content="Next Image" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"
+                Width="100" Height="30" Click="NextImage_Click"/>
     </Grid>
 </Window>
