@@ -6,25 +6,43 @@
         xmlns:local="clr-namespace:DTS_WPF_Learning"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <!-- Storyboard to animate the images -->
+    <Window.Resources>
+        <Storyboard x:Key="ImageAnimation" RepeatBehavior="Forever">
+            <!-- Animation for Image 1: Fade out -->
+            <DoubleAnimation Storyboard.TargetName="sang1"
+                                 Storyboard.TargetProperty="Opacity"
+                                 From="1" To="0" Duration="0:0:1"
+                                 BeginTime="0:0:3"/>
+
+            <!-- Animation for Image 2: Fade in -->
+            <DoubleAnimation Storyboard.TargetName="sang2"
+                                 Storyboard.TargetProperty="Opacity"
+                                 From="0" To="1" Duration="0:0:1"
+                                 BeginTime="0:0:3"/>
+            
+        </Storyboard>
+    </Window.Resources>
+
+    <!-- Start Animation on Load -->
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource ImageAnimation}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
     <Grid>
-        <TextBlock Text="Đỗ Thanh Sang" 
-                   Foreground="Aqua" 
-                   FontSize="50" 
-                   FontWeight="Bold"
-                   MouseEnter="TextBlock_MouseEnter"
-                   Background="Pink"
-                   Height="100"
-                   Width="500"
-                   VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"
-                   >
-            <!--<TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="20" AngleY="10"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="20" Y="30"/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>-->
-        </TextBlock>
+        <!-- Grid to hold images -->
+        <Grid>
+            <!-- Image 1 -->
+            <Image x:Name="sang1" Source="/Images/sang1.jpg" Width="300" Height="200"/>
+
+            <!-- Image 2 -->
+            <Image x:Name="sang2" Source="/Images/sang2.jpg" Width="300" Height="200" Visibility="Collapsed"/>
+
+            <!-- Image 3 -->
+            <Image x:Name="sang3" Source="/Images/sang3.jpg" Width="300" Height="200" Visibility="Collapsed"/>
+        </Grid>
     </Grid>
 </Window>
