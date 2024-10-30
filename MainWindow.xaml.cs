@@ -1,18 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace DTS_WPF_Learning
 {
@@ -21,44 +15,61 @@ namespace DTS_WPF_Learning
     /// </summary>
     public partial class MainWindow : Window
     {
-        // Danh sách các đường dẫn hình ảnh
-        private List<string> _imagePaths = new List<string>
+
+        // Lớp để chứa thông tin hình ảnh
+        public class ImageInfo
         {
-            "Images/sang1.jpg",
-            "Images/sang2.jpg",
-            "Images/sang3.jpg"
-            // Thêm các đường dẫn hình ảnh khác ở đây
-        };
+            public string ImagePath { get; set; }
+            public string Link { get; set; }
+        }
 
-        // Danh sách các đường link dẫn hình ảnh
-        private List<string> _imageLinks = new List<string>
-        {
-           "https://www.vikingscyber.com/",
-           "https://www.vikingscyber.com/khuyen-mai",
-           "https://www.vikingscyber.com/tin-tuc"
-        };
-
-
+        private List<ImageInfo> _imageData; // Danh sách chứa thông tin hình ảnh
         private int _currentIndex = 0;
         private bool _isDragging = false; // Biến để xác định trạng thái kéo
         private Point _startPoint; // Điểm bắt đầu của kéo
 
-        // Đường link cố định sẽ được mở khi click
-        private string _fixedLink = "https://www.vikingscyber.com/";
-
         public MainWindow()
         {
             InitializeComponent();
+            LoadImageData(); // Đọc dữ liệu từ file JSON
             ShowImage(_currentIndex); // Hiển thị hình ảnh đầu tiên
+        }
+
+        // Hàm đọc dữ liệu từ file JSON
+        private void LoadImageData()
+        {
+            //string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "imageData.json");
+            string jsonFilePath = @"D:\CSharp\DTS_WPF_Learning\imageData.json";
+
+            //string jsonFilePath = "ImageData.json"; // Đường dẫn file JSON
+            if (File.Exists(jsonFilePath))
+            {
+                string json = File.ReadAllText(jsonFilePath);
+                _imageData = JsonConvert.DeserializeObject< List<ImageInfo>>(json);
+            }
+            else
+            {
+                MessageBox.Show("File JSON không tồn tại.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                _imageData = new List<ImageInfo>(); // Khởi tạo danh sách rỗng nếu không tìm thấy file JSON
+            }
         }
 
         private void ShowImage(int index)
         {
-            if (index >= 0 && index < _imagePaths.Count)
+            if (_imageData != null && index >= 0 && index < _imageData.Count)
             {
-                // Tạo một đối tượng BitmapImage và gán cho Image.Source
-                BitmapImage bitmap = new BitmapImage(new Uri(_imagePaths[index], UriKind.RelativeOrAbsolute));
-                DisplayImage.Source = bitmap;
+                string imagePath = _imageData[index].ImagePath;
+                //string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _imageData[index].ImagePath);
+
+                if (!File.Exists(imagePath))
+                {
+                    BitmapImage bitmap = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute));
+                    DisplayImage.Source = bitmap;
+                }
+                else
+                {
+                    MessageBox.Show($"Không tìm thấy hình ảnh: {imagePath}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
@@ -76,7 +87,8 @@ namespace DTS_WPF_Learning
             {
                 // Nếu là click không phải kéo, mở link của hình ảnh hiện tại
                 OpenImageLink(_currentIndex);
-            }    
+            }
+            _isDragging = false; // Đặt lại trạng thái kéo
         }
 
         // Sự kiện khi di chuyển chuột (kéo hình ảnh)
@@ -90,7 +102,7 @@ namespace DTS_WPF_Learning
                 if (Math.Abs(currentpoint.X - _startPoint.X) > 20 || Math.Abs(currentpoint.Y - _startPoint.Y) > 20)
                 {
                     _isDragging = false;
-                    _currentIndex = (_currentIndex + 1) % _imagePaths.Count; //Chuyển sang hình ảnh tiếp theo
+                    _currentIndex = (_currentIndex + 1) % _imageData.Count; //Chuyển sang hình ảnh tiếp theo
                     ShowImage(_currentIndex);
                 }
             }
@@ -99,11 +111,11 @@ namespace DTS_WPF_Learning
         // Mở link của hình ảnh hiện tại
         private void OpenImageLink(int index)
         {
-            if (index >= 0 && index < _imageLinks.Count)
+            if (index >= 0 && index < _imageData.Count)
             {
                 Process.Start(new ProcessStartInfo
                 {
-                    FileName = _imageLinks[index],
+                    FileName = _imageData[index].Link,
                     UseShellExecute = true // Cần thiết để mở link trong trình duyệt mặc định
                 });
             }
